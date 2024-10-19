@@ -1,0 +1,9 @@
+.env
+app/Domain/Function/*
+app/Domain/Model/*
+app/Storage/*
+issue
+reset
+t
+.node_modules/*
+node_modules/*
