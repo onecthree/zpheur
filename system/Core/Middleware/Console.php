@@ -11,7 +11,11 @@
  * 
  */
 
-$middleware = new Zpheur\Schemes\Http\Middleware(require APP_BASEPATH.'/system/var/cache/middleware/console.php');
+$path = APP_BASEPATH.'/system/var/cache/middleware/console.php';
+
+$middleware = new Zpheur\Schemes\Http\Middleware(
+    require file_exists($path) || touch($path) ? $path : 0
+);
 // $middleware->setGlobalLists([
 //     [ App\Console\Middleware\Web::class, [
 //         'user'  => 123,
