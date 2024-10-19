@@ -1,0 +1,13 @@
+{
+    "name": "onecthree/zpheur",
+    "description": "Web framework for PHP",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Sultan Ilham",
+            "email": "onecthree@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

@@ -7,3 +7,4 @@ reset
 t
 .node_modules/*
 node_modules/*
+/vendor/
