@@ -54,7 +54,6 @@ try
         ->withBaseNamespace('App\Console\Action');
 
     $application->run();
-
 }
 catch( \Exception )
 {

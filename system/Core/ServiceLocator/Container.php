@@ -16,8 +16,8 @@ $container = new Zpheur\Dependencies\ServiceLocator\Container();
 /**
  * Use global definer for before request catch-up
  *  
-    $container->withDefaultScalarsValue([
-        string  => '',
-        int     => 0,
-    ]);
+ * $container->withDefaultScalarsValue([
+ *      string  => '',
+ *      int     => 0,
+ * ]);
 */

@@ -48,7 +48,6 @@ require APP_BASEPATH.'/system/Core/Database/Voile/Model.php';
 require APP_BASEPATH.'/system/Core/ServiceLocator/Container.php';
 require APP_BASEPATH.'/system/Core/Middleware/Http.php';
 
-
 try
 {
     $dispatcher = new Dispatcher(require APP_BASEPATH.'/system/var/cache/route/source.php');
