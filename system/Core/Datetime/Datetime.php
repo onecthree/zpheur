@@ -11,5 +11,8 @@
  * 
  */
 
-/* Local timezone */
+/**
+ * Set specific timezone for your project
+ * e.g. Asia/Jakarta, Asia/Hong_Kong, etc.
+ */
 date_default_timezone_set('UTC');
