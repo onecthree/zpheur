@@ -1,5 +1,5 @@
 <?php declare( strict_types = 1 );
-namespace Core\Database\Voile;
+namespace System\Core\Database\Voile;
 
 use Zpheur\Databases\Voile\Model as Voile;
 
@@ -12,4 +12,4 @@ class Model extends Voile
             dbName: getenv('MONGODB_NAME'),
         );
     }
-}
+};

@@ -3,6 +3,7 @@ namespace App\Console\Action;
 
 use App\Console\Abstract\BaseAction;
 use Zpheur\Schemes\Http\Routing\Route;
+use Zpheur\DataTransforms\Dotenv\Dotenv;
 
 
 class CacheAction extends BaseAction
@@ -26,5 +27,12 @@ class CacheAction extends BaseAction
         $path = APP_BASEPATH.getenv('STATIC_FILECACHE_PATH');
         foreach( glob($path.'*') as $cache )
             unlink($cache);
+    }
+
+    public function env(): void
+    {
+        $cache = APP_BASEPATH.'/system/var/cache/env/source.php';
+        $dotenv = (new Dotenv(APP_BASEPATH.'/.env'))
+            ->parse(false, true);
     }
 }

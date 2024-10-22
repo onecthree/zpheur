@@ -36,9 +36,9 @@ define('APP_MICROTIME', microtime(true));
 
 spl_autoload_register( function( string $className ) : void
 {
-    $clfile = APP_BASEPATH.DIRECTORY_SEPARATOR.clfile(class_name: $className). '.php';
-    if( !class_exists($className) && file_exists($clfile) )
-        require $clfile;
+    $classFileTarget = APP_BASEPATH.DIRECTORY_SEPARATOR.clfile(class_name: $className). '.php';
+    if( !class_exists($className) && file_exists($classFileTarget) )
+        require $classFileTarget;
 });
 
 require APP_BASEPATH.'/system/Core/Dotenv/Dotenv.php';
@@ -47,8 +47,6 @@ require APP_BASEPATH.'/system/Core/Datetime/Datetime.php';
 require APP_BASEPATH.'/system/Core/ServiceLocator/Container.php';
 require APP_BASEPATH.'/system/Core/Middleware/Http.php';
 
-if( class_exists(Zpheur\Databases\Voile\Model::class) )
-    require APP_BASEPATH.'/system/Core/Database/Voile/Model.php';
 
 try
 {

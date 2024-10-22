@@ -1,5 +1,5 @@
 <?php declare( strict_types = 1 );
-namespace Core\Database\Phase;
+namespace System\Core\Database\Phase;
 
 use Zpheur\Databases\Phase\Model as Phase;
 use function Zpheur\DataTransforms\Dotenv\env;
