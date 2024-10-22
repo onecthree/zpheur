@@ -37,9 +37,11 @@ spl_autoload_register( function( string $className ) : void
 require APP_BASEPATH.'/system/Core/Dotenv/Dotenv.php';
 require APP_BASEPATH.'/system/Core/Constant/Constant.php';
 require APP_BASEPATH.'/system/Core/Datetime/Datetime.php';
-require APP_BASEPATH.'/system/Core/Database/Voile/Model.php';
 require APP_BASEPATH.'/system/Core/ServiceLocator/Container.php';
 require APP_BASEPATH.'/system/Core/Middleware/Console.php';
+
+if( class_exists(Zpheur\Databases\Voile\Model::class) )
+    require APP_BASEPATH.'/system/Core/Database/Voile/Model.php';
 
 try
 {
