@@ -1,7 +1,7 @@
 # Zpheur Skeleton Application
 > ⚠️ Used only for non-production (non-stable release)
  
-Zpheur skeleton application for a new project use Zpheur.
+Zpheur skeleton application for a new project.
 
 ## Installation
 > Remember, you must install the [czpheur](https://github.com/onecthree/czpheur) extension before using this template.
