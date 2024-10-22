@@ -10,5 +10,8 @@
     ],
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "require": {}
+    "require": {
+        "php": "^8.2",
+        "ext-zpheur": "*"
+    }
 }
