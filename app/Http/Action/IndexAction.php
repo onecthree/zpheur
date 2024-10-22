@@ -6,6 +6,8 @@ use App\Service\Http\Message\{ Request, Response };
 
 use App\Http\Middleware\Welcome;
 
+use App\Http\Exception;
+
 #[Middleware(dest: Welcome::class)]
 class IndexAction extends BaseAction
 {

@@ -1,5 +1,5 @@
 <?php declare( strict_types = 1 );
-namespace App\Http\Exception\Http;
+namespace App\Http\Exception;
 
 use System\Core\Exception\ErrorException;
 use App\Service\Http\Message\{ Request, Response };
