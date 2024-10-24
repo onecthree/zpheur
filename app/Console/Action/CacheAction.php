@@ -33,6 +33,7 @@ class CacheAction extends BaseAction
     {
         $cache = APP_BASEPATH.'/system/var/cache/env/source.php';
         $dotenv = (new Dotenv(APP_BASEPATH.'/.env'))
-            ->parse(false, true);
+            ->parse(true, true)
+            ->serialize($cache);
     }
 }
