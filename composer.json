@@ -13,5 +13,10 @@
     "require": {
         "php": "^8.2",
         "ext-zpheur": "*"
+    },
+    "scripts": {
+        "post-create-project-cmd": [
+            "@php bin/console route:make"
+        ]
     }
 }
