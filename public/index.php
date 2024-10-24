@@ -15,6 +15,8 @@ error_reporting(E_ALL);
  * 
  */
 
+if( !extension_loaded('zpheur') )
+    die('zpheur extension is not installed.' .PHP_EOL);
 
 define('APP_ERROR_HANDLER', PHP_ERROR_HANDLER);
 define('APP_BASEPATH', dirname(__DIR__));
