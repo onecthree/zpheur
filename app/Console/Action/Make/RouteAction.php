@@ -1,5 +1,5 @@
 <?php declare( strict_types = 1 );
-namespace App\Console\Action;
+namespace App\Console\Action\Make;
 
 use function Zpheur\Globals\filetoclass;
 
@@ -55,7 +55,7 @@ class RouteAction extends BaseAction
 		};
 	}
 
-	public function make( int $argc, string $command, array $flags ): int
+	public function __invoke( int $argc, string $command, array $flags ): int
 	{
 		$actionFilesSaved = [];
 		$actionRoutesSaved = 0;
@@ -149,9 +149,9 @@ class RouteAction extends BaseAction
 				usleep(100_000);
 			}
 		}
-
 		$route->save();
 
+		echo 'OK.'.PHP_EOL;
 		return $this->exitCode(0);
 	}
 }
