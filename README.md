@@ -1,5 +1,5 @@
 # Zpheur Skeleton Application
-> ⚠️ Used only for non-production (non-stable release)
+> ⚠️ Used only for non-production (untested and non-stable release)
  
 Zpheur skeleton application for a new project.
 
