@@ -3,8 +3,6 @@ namespace App\Http\Action;
 
 use App\Http\Abstract\BaseAction;
 use App\Service\Http\Message\{ Request, Response };
-use App\Http\Exception;
-use App\Model\BlogPosts;
 
 class IndexAction extends BaseAction
 {
