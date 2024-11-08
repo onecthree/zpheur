@@ -145,8 +145,6 @@ class RouteAction extends BaseAction
 
 				if( $middleware )
 					$route->middleware($middleware);
-
-				usleep(100_000);
 			}
 		}
 		$route->save();

@@ -9,7 +9,6 @@ class HttpNotFoundException extends ErrorException
     public function __construct( string $message, int $hint )
     {
         parent::__construct($message);
-
         $this->hint = $hint;
     }
 }

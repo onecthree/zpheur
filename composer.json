@@ -16,7 +16,7 @@
     },
     "scripts": {
         "post-create-project-cmd": [
-            "@php bin/console route:make"
+            "@php bin/console make:route"
         ]
     }
 }
