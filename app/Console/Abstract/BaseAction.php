@@ -1,7 +1,7 @@
 <?php declare( strict_types = 1 );
 namespace App\Console\Abstract;
 
-use Zpheur\Actions\Http\DefaultAction;
+use Zpheur\Actions\Console\DefaultAction;
 use App\Service\Console\Input\InputArgument;
 use Zpheur\Dependencies\ServiceLocator\Container;
 
