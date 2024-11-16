@@ -12,7 +12,6 @@
  */
 
 
-use function Zpheur\Globals\is_appns;
 use function Zpheur\Globals\clfile;
 
 use Zpheur\Consoles\Runtime\Application;
@@ -20,7 +19,9 @@ use Zpheur\Actions\Reflection\ActionResolver;
 use Zpheur\Actions\Reflection\ArgumentResolver;
 
 use App\Service\Console\Input\InputArgument;
-use App\Console\Action\ErrorHandler\ErrorAction;
+use App\Console\Action\ErrorHandler\CommandNotFoundAction;
+use App\Console\Action\ErrorHandler\ExceptionThrownAction;
+use System\Core\Exception\ErrorException;
 
 
 define('APP_MICROTIME', microtime(true));
@@ -43,7 +44,7 @@ try
 {
     $argumentResolver = new ArgumentResolver($container);
     $actionResolver = (new ActionResolver($middleware))
-        ->withDefaultAction(ErrorAction::class, '__invoke')
+        ->withDefaultAction(CommandNotFoundAction::class, '__invoke')
         ->staticMiddlewareCall(true);
 
     $inputArgument = new InputArgument($argc, $argv);
@@ -53,9 +54,10 @@ try
 
     $application->run();
 }
-catch( \Exception )
+catch( ErrorException $error )
 {
-
+    $container->set(ErrorException::class, $error);
+    $application->terminate($error, ExceptionThrownAction::class, '__invoke');
 }
 
 defined('EXIT_CODE') or define('EXIT_CODE', 0);

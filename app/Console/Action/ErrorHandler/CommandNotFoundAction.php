@@ -2,25 +2,23 @@
 namespace App\Console\Action\ErrorHandler;
 
 use App\Console\Abstract\BaseAction;
-use App\Console\Middleware\CommandNotFound;
-use App\Console\Middleware\Session;
+use App\Console\Exception\CommandNotFoundException;
 use App\Service\Console\Input\InputArgument;
-
 use Zpheur\Dependencies\ServiceLocator\Container;
 
-use App\Console\Extension\Fork;
 
-
-class ErrorAction extends BaseAction
+class CommandNotFoundAction extends BaseAction
 {
     public function __construct( InputArgument &$input, Container &$container )
     {
         parent::__construct($input, $container);
     }
-    
-    public function __invoke( string $command, int $argc ): int
-    {   
-        echo "command: not found\n";
-        return $this->exitCode(127);
+
+    public function __invoke( string $command, int $argc )
+    {
+        throw new CommandNotFoundException(
+            message: 'Command not found',
+            hint: 127,
+        );
     }
 }
