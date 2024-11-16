@@ -14,27 +14,21 @@
  * 
  */
 
-use function Zpheur\Globals\is_appns;
 use function Zpheur\Globals\clfile;
 
-use App\Http\Exception\PageView\ForbiddenException;
-
 use Zpheur\Schemes\Http\Routing\Dispatcher;
-use Zpheur\Schemes\Http\Foundation\ParameterBag;
 use Zpheur\Schemes\Http\Foundation\Kernel;
-use Zpheur\Schemes\Http\Foundation\RouteKernel;
 use Zpheur\Actions\Reflection\ActionResolver;
 use Zpheur\Actions\Reflection\ArgumentResolver;
-use Zpheur\Schemes\Http\Routing\Route;
 
 use App\Http\Action\ErrorHandler\RequestNotFoundAction;
 use App\Http\Action\ErrorHandler\ExceptionThrownAction;
-use App\Service\Http\Message\Request;
+use System\Core\Exception\ErrorException;
 
 
 define('APP_MICROTIME', microtime(true));
 
-spl_autoload_register( function( string $className ) : void
+spl_autoload_register( static function( string $className ) : void
 {
     $classFileTarget = APP_BASEPATH.DIRECTORY_SEPARATOR.clfile(class_name: $className). '.php';
     if( !class_exists($className) && file_exists($classFileTarget) )
@@ -57,9 +51,9 @@ try
 
     $kernel = new Kernel($dispatcher, $actionResolver, $argumentResolver);
     echo $kernel->handle($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI']);
-}
-catch( \System\Core\Exception\ErrorException $error )
+}   
+catch( ErrorException $error )
 {   
-    $container->set(\System\Core\Exception\ErrorException::class, $error);
+    $container->set(ErrorException::class, $error);
     echo $kernel->terminate($error, ExceptionThrownAction::class, '__invoke');
 }
