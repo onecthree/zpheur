@@ -14,12 +14,16 @@
 
 $path = APP_BASEPATH.'/system/var/cache/middleware/http.php';
 
-$middleware = new Zpheur\Schemes\Http\Middleware(
+$middleware = new Zpheur\Actions\Middleware(
     require file_exists($path) || touch($path) ? $path : 0
 );
-// $middleware->setGlobalLists([
-//     [ App\Http\Middleware\WebMiddleware::class, [
-//         // 'user'  => 123,
-//         // 'foo'   => 456,
-//     ]],
-// ]);
+
+// You can set the global middleware without specific route or destination
+/**
+$middleware->setGlobalLists([
+    [ App\Http\Middleware\WebMiddleware::class, [
+        'user'  => 123,
+        'foo'   => 456,
+    ]],
+]);
+**/
